@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://demg75egc2yfw"]
+
+[node name="BrushAction" type="HBoxContainer"]
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+text = "This is an eraser"

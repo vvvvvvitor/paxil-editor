@@ -1,0 +1,143 @@
+[gd_scene load_steps=12 format=3 uid="uid://dib00mtok6x2x"]
+
+[ext_resource type="Script" path="res://src/drawing_viewport/workspace_viewport.gd" id="1_j23gu"]
+[ext_resource type="Theme" uid="uid://2mf65o6rg3hk" path="res://res/themes/default_theme.tres" id="2_dy18j"]
+[ext_resource type="Script" path="res://src/ui/position_display.gd" id="4_mpseu"]
+[ext_resource type="Script" path="res://src/ui/action_bar.gd" id="4_w2eef"]
+[ext_resource type="Texture2D" uid="uid://bodv1usnnh0io" path="res://res/textures/icons/plus-16x.png" id="5_c2jgy"]
+[ext_resource type="Script" path="res://src/ui/camera_controls/camera_zoom.gd" id="5_lr42b"]
+[ext_resource type="Script" path="res://src/ui/camera_controls/camera_rotation.gd" id="6_aysj5"]
+[ext_resource type="Script" path="res://src/ui/toolbar.gd" id="7_b1e4c"]
+[ext_resource type="Texture2D" uid="uid://bb174n1c7qvcj" path="res://res/textures/icons/minus-16x.png" id="7_juavm"]
+[ext_resource type="Texture2D" uid="uid://yss5sph84cc6" path="res://res/textures/icons/rotate_left-16x.png" id="8_uq0sw"]
+[ext_resource type="Texture2D" uid="uid://b06vbomnwwink" path="res://res/textures/icons/rotate_right-16x.png" id="10_8mnlq"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 3
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+script = ExtResource("1_j23gu")
+
+[node name="Control" type="ReferenceRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("2_dy18j")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="PositionDisplay" type="Label" parent="Control/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "0, 0"
+vertical_alignment = 2
+script = ExtResource("4_mpseu")
+
+[node name="ActionBar" type="PanelContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+script = ExtResource("4_w2eef")
+
+[node name="CameraControls" type="VBoxContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_constants/separation = 12
+
+[node name="ZoomControls" type="PanelContainer" parent="Control/MarginContainer/CameraControls"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer/CameraControls/ZoomControls"]
+layout_mode = 2
+theme_override_constants/separation = -1
+
+[node name="ZoomIn" type="Button" parent="Control/MarginContainer/CameraControls/ZoomControls/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+icon = ExtResource("5_c2jgy")
+flat = true
+script = ExtResource("5_lr42b")
+zoom_amount = 0.25
+metadata/amount = 0.1
+
+[node name="HSeparator" type="HSeparator" parent="Control/MarginContainer/CameraControls/ZoomControls/VBoxContainer"]
+layout_mode = 2
+
+[node name="ZoomOut" type="Button" parent="Control/MarginContainer/CameraControls/ZoomControls/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+icon = ExtResource("7_juavm")
+flat = true
+script = ExtResource("5_lr42b")
+zoom_amount = -0.25
+
+[node name="RotationControls" type="PanelContainer" parent="Control/MarginContainer/CameraControls"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer/CameraControls/RotationControls"]
+layout_mode = 2
+
+[node name="RotateLeft" type="Button" parent="Control/MarginContainer/CameraControls/RotationControls/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+icon = ExtResource("8_uq0sw")
+flat = true
+script = ExtResource("6_aysj5")
+
+[node name="HSeparator" type="HSeparator" parent="Control/MarginContainer/CameraControls/RotationControls/VBoxContainer"]
+layout_mode = 2
+
+[node name="RotateRight" type="Button" parent="Control/MarginContainer/CameraControls/RotationControls/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+icon = ExtResource("10_8mnlq")
+flat = true
+script = ExtResource("6_aysj5")
+rotation_amount = -0.785
+
+[node name="Toolbar" type="PanelContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+mouse_filter = 1
+
+[node name="ItemList" type="ItemList" parent="Control/MarginContainer/Toolbar"]
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2
+auto_height = true
+script = ExtResource("7_b1e4c")

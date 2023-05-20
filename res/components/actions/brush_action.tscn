@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbcelvqb4h7pj"]
+
+[ext_resource type="Script" path="res://src/ui/actions/brush/color_picker.gd" id="1_8whp8"]
+
+[node name="BrushAction" type="HBoxContainer"]
+
+[node name="ColorPickerPreviewButton2" type="ColorPickerButton" parent="."]
+layout_mode = 2
+focus_mode = 0
+script = ExtResource("1_8whp8")
+secondary = true
+
+[node name="ColorPickerPreviewButton" type="ColorPickerButton" parent="."]
+layout_mode = 2
+focus_mode = 0
+script = ExtResource("1_8whp8")

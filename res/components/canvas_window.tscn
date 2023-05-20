@@ -1,0 +1,85 @@
+[gd_scene load_steps=9 format=3 uid="uid://dla40e02578wm"]
+
+[ext_resource type="Script" path="res://src/drawing_viewport/canvas/canvas_window.gd" id="1_hmfas"]
+[ext_resource type="Script" path="res://src/drawing_viewport/canvas/backdrop.gd" id="2_4d7m6"]
+[ext_resource type="Script" path="res://src/drawing_viewport/canvas/handle.gd" id="2_deb13"]
+[ext_resource type="Script" path="res://src/drawing_viewport/canvas/remove_button.gd" id="3_n6a0i"]
+[ext_resource type="Texture2D" uid="uid://cc0l1qihw2gx3" path="res://res/textures/icons/x-16x.png" id="4_2epwp"]
+[ext_resource type="Script" path="res://src/drawing_viewport/canvas/save_button.gd" id="6_qgvfo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_26j7h"]
+draw_center = false
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+shadow_size = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bdoh8"]
+bg_color = Color(0, 0, 0, 0.498039)
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+anti_aliasing = false
+
+[node name="CanvasWindow" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_hmfas")
+
+[node name="Backdrop" type="PanelContainer" parent="."]
+layout_mode = 1
+offset_right = 32.0
+offset_bottom = 34.0
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_26j7h")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Backdrop"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = -1
+
+[node name="CanvasContainer" type="BoxContainer" parent="Backdrop/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+script = ExtResource("2_4d7m6")
+
+[node name="Handle" type="PanelContainer" parent="Backdrop/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_bdoh8")
+script = ExtResource("2_deb13")
+
+[node name="MarginContainer" type="MarginContainer" parent="Backdrop/HBoxContainer/Handle"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="Functions" type="VBoxContainer" parent="Backdrop/HBoxContainer/Handle/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+
+[node name="RemoveButton" type="Button" parent="Backdrop/HBoxContainer/Handle/MarginContainer/Functions"]
+layout_mode = 2
+mouse_filter = 1
+icon = ExtResource("4_2epwp")
+icon_alignment = 1
+script = ExtResource("3_n6a0i")
+
+[node name="SaveButton" type="Button" parent="Backdrop/HBoxContainer/Handle/MarginContainer/Functions"]
+visible = false
+layout_mode = 2
+script = ExtResource("6_qgvfo")

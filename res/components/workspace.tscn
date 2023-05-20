@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://bk6e5dvj7u54l"]
+
+[ext_resource type="Script" path="res://src/drawing_viewport/workspace.gd" id="1_babgt"]
+[ext_resource type="Script" path="res://src/drawing_viewport/canvas_manager.gd" id="2_pdqj4"]
+[ext_resource type="Script" path="res://src/drawing_viewport/center_point.gd" id="2_xlgbh"]
+
+[node name="Workspace" type="Node2D"]
+script = ExtResource("1_babgt")
+
+[node name="CenterPoint" type="Node2D" parent="."]
+script = ExtResource("2_xlgbh")
+
+[node name="CanvasManager" type="Node2D" parent="."]
+script = ExtResource("2_pdqj4")
