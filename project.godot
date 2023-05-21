@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Novo Projeto De Jogo"
+config/name="Paxil"
 run/main_scene="res://ui.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 config/icon="res://icon.svg"
@@ -23,7 +23,9 @@ CoreMath="*res://src/core/autoloads/core_math.gd"
 
 [display]
 
+window/energy_saving/keep_screen_on=false
 window/subwindows/embed_subwindows=false
+window/per_pixel_transparency/allowed=true
 
 [input]
 
@@ -40,4 +42,4 @@ action_secondary={
 
 [rendering]
 
-environment/defaults/default_clear_color=Color(0.780392, 0.639216, 0.533333, 1)
+environment/defaults/default_clear_color=Color(1, 0.67451, 0.611765, 1)

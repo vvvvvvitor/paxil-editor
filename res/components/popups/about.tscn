@@ -1,0 +1,102 @@
+[gd_scene load_steps=5 format=3 uid="uid://dorypbtwmtdjo"]
+
+[ext_resource type="Texture2D" uid="uid://d0cdwnbq2csoe" path="res://icon.svg" id="1_rb7i3"]
+[ext_resource type="Theme" uid="uid://2mf65o6rg3hk" path="res://res/themes/default_theme.tres" id="1_t8cwi"]
+[ext_resource type="Texture2D" uid="uid://crvtu6n04dxl2" path="res://res/textures/icons/link-16x.png" id="3_0o453"]
+[ext_resource type="Script" path="res://src/core/classes/themed_link_button.gd" id="4_jbm4r"]
+
+[node name="AboutWindow" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_t8cwi")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.109804, 0.109804, 0.109804, 1)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="FlowContainer" parent="ColorRect/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+theme_override_constants/h_separation = 12
+theme_override_constants/v_separation = 12
+alignment = 1
+
+[node name="Header" type="VBoxContainer" parent="ColorRect/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/ScrollContainer/VBoxContainer/Header"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture = ExtResource("1_rb7i3")
+
+[node name="AppName" type="Label" parent="ColorRect/ScrollContainer/VBoxContainer/Header"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 1
+text = "Paxil"
+
+[node name="AppCreator" type="Label" parent="ColorRect/ScrollContainer/VBoxContainer/Header"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 1
+text = "Vitor Gabriel"
+
+[node name="PanelContainer" type="PanelContainer" parent="ColorRect/ScrollContainer/VBoxContainer/Header"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect/ScrollContainer/VBoxContainer/Header/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_right = 6
+
+[node name="Label" type="Label" parent="ColorRect/ScrollContainer/VBoxContainer/Header/PanelContainer/MarginContainer"]
+layout_mode = 2
+text = "0.0.0dev"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="WebPage" type="Button" parent="ColorRect/ScrollContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+size_flags_vertical = 0
+text = "Web page"
+icon = ExtResource("3_0o453")
+alignment = 0
+icon_alignment = 2
+script = ExtResource("4_jbm4r")
+URI = "https://github.com/vvvvvvitor/paxil-editor"
+
+[node name="Report" type="Button" parent="ColorRect/ScrollContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+size_flags_vertical = 0
+text = "Report a problem"
+icon = ExtResource("3_0o453")
+alignment = 0
+icon_alignment = 2
+script = ExtResource("4_jbm4r")
+URI = "https://github.com/vvvvvvitor/paxil-editor/issues"

@@ -41,7 +41,6 @@ func _canvas_input(canvas:Canvas, event:InputEvent):
 			DRAWING_STATES.IDLE:
 				pass
 
-
 	if event is InputEventMouseButton:
 		if event.button_index in [MOUSE_BUTTON_LEFT, MOUSE_BUTTON_RIGHT]:
 			last_point = event.position / Core.CANVAS_AMPLIFICATION

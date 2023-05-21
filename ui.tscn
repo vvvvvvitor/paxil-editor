@@ -1,5 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://dib00mtok6x2x"]
+[gd_scene load_steps=17 format=3 uid="uid://dib00mtok6x2x"]
 
+[ext_resource type="Script" path="res://src/ui/main_ui.gd" id="1_01tpu"]
 [ext_resource type="Script" path="res://src/drawing_viewport/workspace_viewport.gd" id="1_j23gu"]
 [ext_resource type="Theme" uid="uid://2mf65o6rg3hk" path="res://res/themes/default_theme.tres" id="2_dy18j"]
 [ext_resource type="Script" path="res://src/ui/position_display.gd" id="4_mpseu"]
@@ -11,8 +12,15 @@
 [ext_resource type="Texture2D" uid="uid://bb174n1c7qvcj" path="res://res/textures/icons/minus-16x.png" id="7_juavm"]
 [ext_resource type="Texture2D" uid="uid://yss5sph84cc6" path="res://res/textures/icons/rotate_left-16x.png" id="8_uq0sw"]
 [ext_resource type="Texture2D" uid="uid://b06vbomnwwink" path="res://res/textures/icons/rotate_right-16x.png" id="10_8mnlq"]
+[ext_resource type="Script" path="res://res/components/actionbar/more.gd" id="12_d8vf4"]
+[ext_resource type="Texture2D" uid="uid://ct1tmysjwx14c" path="res://res/textures/icons/3_dots-16x.png" id="12_nes68"]
+[ext_resource type="Shader" path="res://src/core/shaders/colors.gdshader" id="12_u0o5w"]
 
-[node name="Control" type="Control"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8bk0i"]
+shader = ExtResource("12_u0o5w")
+shader_parameter/color = Color(0.372549, 0.313726, 1, 1)
+
+[node name="MainUI" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -20,6 +28,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+script = ExtResource("1_01tpu")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 layout_mode = 1
@@ -28,7 +37,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_default_cursor_shape = 3
 stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
@@ -55,10 +63,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
 
 [node name="PositionDisplay" type="Label" parent="Control/MarginContainer"]
 layout_mode = 2
@@ -66,12 +74,6 @@ size_flags_vertical = 8
 text = "0, 0"
 vertical_alignment = 2
 script = ExtResource("4_mpseu")
-
-[node name="ActionBar" type="PanelContainer" parent="Control/MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-script = ExtResource("4_w2eef")
 
 [node name="CameraControls" type="VBoxContainer" parent="Control/MarginContainer"]
 layout_mode = 2
@@ -130,6 +132,30 @@ flat = true
 script = ExtResource("6_aysj5")
 rotation_amount = -0.785
 
+[node name="FlowContainer" type="FlowContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+alignment = 1
+vertical = true
+
+[node name="ActionBar" type="PanelContainer" parent="Control/MarginContainer/FlowContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+script = ExtResource("4_w2eef")
+
+[node name="PanelContainer" type="PanelContainer" parent="Control/MarginContainer/FlowContainer"]
+layout_mode = 2
+
+[node name="More" type="MenuButton" parent="Control/MarginContainer/FlowContainer/PanelContainer"]
+layout_mode = 2
+icon = ExtResource("12_nes68")
+item_count = 1
+popup/item_0/text = "About Paxil"
+popup/item_0/id = 0
+script = ExtResource("12_d8vf4")
+
 [node name="Toolbar" type="PanelContainer" parent="Control/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
@@ -141,3 +167,50 @@ custom_minimum_size = Vector2(24, 0)
 layout_mode = 2
 auto_height = true
 script = ExtResource("7_b1e4c")
+
+[node name="ColorPicker" type="PanelContainer" parent="Control"]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/ColorPicker"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/ColorPicker/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/ColorPicker/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Control/ColorPicker/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Pick Color"
+
+[node name="LineEdit" type="LineEdit" parent="Control/ColorPicker/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+placeholder_text = "#000000"
+max_length = 7
+expand_to_text_length = true
+flat = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/ColorPicker/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VSlider" type="VSlider" parent="Control/ColorPicker/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="ColorDisplay" type="ColorRect" parent="Control/ColorPicker/MarginContainer/VBoxContainer/HBoxContainer2"]
+modulate = Color(0.517647, 0.517647, 0.517647, 1)
+material = SubResource("ShaderMaterial_8bk0i")
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HSlider" type="HSlider" parent="Control/ColorPicker/MarginContainer/VBoxContainer"]
+layout_mode = 2

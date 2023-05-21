@@ -3,12 +3,16 @@ extends PanelContainer
 func _ready():
 	CoreTools.tool_selected.connect(_on_selection)
 	child_entered_tree.connect(_on_new_action)
+	
+	visible = false
 
 
 func set_action(scene:PackedScene):
 	var action = scene.instantiate()
 	action.set_meta("tool", CoreTools.current_tool)
 	add_child(action)
+	
+	visible = true
 
 
 func _on_new_action(child):

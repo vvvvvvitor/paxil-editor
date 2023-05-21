@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=11 format=3 uid="uid://2mf65o6rg3hk"]
+[gd_resource type="Theme" load_steps=12 format=3 uid="uid://2mf65o6rg3hk"]
 
 [ext_resource type="FontFile" uid="uid://ceu70eo07piqq" path="res://res/fonts/futura medium bt.ttf" id="1_gua10"]
 
@@ -95,7 +95,7 @@ content_margin_left = 2.0
 content_margin_top = 2.0
 content_margin_right = 2.0
 content_margin_bottom = 2.0
-bg_color = Color(0.207843, 0.207843, 0.207843, 0.72549)
+bg_color = Color(0.109804, 0.109804, 0.109804, 1)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
@@ -114,6 +114,24 @@ content_margin_top = 2.0
 content_margin_right = 2.0
 content_margin_bottom = 2.0
 draw_center = false
+border_color = Color(0.8, 0.8, 0.8, 0.513726)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0, 0, 0, 0.294118)
+shadow_size = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ju2v"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+bg_color = Color(0.109804, 0.109804, 0.109804, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
 border_color = Color(0.8, 0.8, 0.8, 0.513726)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
@@ -149,7 +167,7 @@ PopupMenu/styles/labeled_separator_right = SubResource("StyleBoxLine_bf6fj")
 PopupMenu/styles/panel = SubResource("StyleBoxFlat_jhwpl")
 PopupMenu/styles/panel_disabled = SubResource("StyleBoxFlat_7me25")
 PopupMenu/styles/separator = SubResource("StyleBoxLine_bf6fj")
-PopupPanel/styles/panel = SubResource("StyleBoxFlat_jhwpl")
+PopupPanel/styles/panel = SubResource("StyleBoxFlat_0ju2v")
 TabBar/styles/button_highlight = SubResource("StyleBoxFlat_4fcpr")
 TabBar/styles/button_pressed = SubResource("StyleBoxFlat_8654k")
 TabBar/styles/tab_disabled = SubResource("StyleBoxFlat_8654k")

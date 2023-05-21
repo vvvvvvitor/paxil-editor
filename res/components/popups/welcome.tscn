@@ -1,0 +1,70 @@
+[gd_scene load_steps=5 format=3 uid="uid://mdcjb52fcbah"]
+
+[ext_resource type="Theme" uid="uid://2mf65o6rg3hk" path="res://res/themes/default_theme.tres" id="1_0seh6"]
+[ext_resource type="Texture2D" uid="uid://dlk1awkuqdkry" path="res://res/textures/icons/logos/GitHub_Logo_White.png" id="2_s4fu7"]
+[ext_resource type="Script" path="res://src/core/classes/themed_link_button.gd" id="3_mg6rm"]
+[ext_resource type="Texture2D" uid="uid://bh718qemmjr1o" path="res://res/textures/icons/logos/twitter-logo.svg" id="3_mwhmv"]
+
+[node name="Welcome" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_0seh6")
+color = Color(0.109804, 0.109804, 0.109804, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -43.5
+offset_bottom = 43.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Welcome to Paxil!"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="HBoxContainer" type="FlowContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Twitter" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+icon = ExtResource("3_mwhmv")
+flat = true
+expand_icon = true
+script = ExtResource("3_mg6rm")
+URI = "https://twitter.com/VitorGabrielGom"
+
+[node name="Github" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(96, 48)
+layout_mode = 2
+icon = ExtResource("2_s4fu7")
+flat = true
+expand_icon = true
+script = ExtResource("3_mg6rm")
+URI = "https://github.com/vvvvvvitor/paxil-editor"
