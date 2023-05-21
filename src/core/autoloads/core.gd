@@ -1,11 +1,15 @@
 extends Node
 
 signal tool_changed
+signal workspace_changed
 
 const DEFAULT_ICON = preload("res://res/textures/icons/broken_file.png")
 const CANVAS_AMPLIFICATION:int = 16
 
-var current_workspace:WorkspaceViewport
+var current_workspace:WorkspaceViewport:
+	set(val):
+		current_workspace = val
+		emit_signal("workspace_changed")
 
 
 func create_window_popup(scene:PackedScene, custom_size:Vector2 = Vector2(384, 384), on_top:bool = true) -> BaseWindow:

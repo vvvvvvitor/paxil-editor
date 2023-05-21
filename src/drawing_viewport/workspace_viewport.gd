@@ -2,6 +2,7 @@ extends SubViewport
 class_name WorkspaceViewport
 
 signal tool_changed
+signal workspace_created
 
 const WORKSPACE_SCENE = preload("res://res/components/workspace.tscn")
 var workspace = WORKSPACE_SCENE.instantiate()
@@ -17,3 +18,4 @@ func _ready():
 	workspace_camera.ignore_rotation = false
 	add_child(workspace_camera)
 	add_child(workspace)
+	emit_signal("workspace_created")

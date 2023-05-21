@@ -33,6 +33,7 @@ func _ready():
 		image_texture.update(image_buffer)
 		texture = image_texture
 	image_texture.update(image_buffer)
+	#draw_flood_fill_on_canvas(Vector2.ZERO, Color.BLACK)
 
 
 func draw_point_on_canvas(pos:Vector2, color:Color, color_mode:COLOR_MODE = COLOR_MODE.NORMAL):
@@ -49,4 +50,28 @@ func draw_line_on_canvas(initial_position:Vector2, ending_position:Vector2, colo
 	var dist = initial_position.distance_to(ending_position)
 	for point in dist:
 		draw_point_on_canvas(lerp(initial_position, ending_position, point / dist), color, color_mode)
+
+ 
+func draw_flood_fill_on_canvas(initial_position:Vector2, color:Color):
+	var canvas_size = Vector2(image_buffer.get_size())
+	var old_color = image_buffer.get_pixelv(initial_position)
+	
+	if old_color == color:
+		return
+	var queue:PackedVector2Array = []
+	queue.append(initial_position)
+	
+	while !queue.is_empty():
+		var next_pos = queue[0]
+		queue.remove_at(0)
+		
+		if (next_pos.x < 0 or next_pos.x >= canvas_size.x) or (next_pos.y < 0 or next_pos.y >= canvas_size.y) or image_buffer.get_pixelv(next_pos) != old_color:
+			continue
+		else:
+			draw_point_on_canvas(next_pos, color)
+			
+			queue.append(next_pos + Vector2.LEFT)
+			queue.append(next_pos + Vector2.RIGHT)
+			queue.append(next_pos + Vector2.UP)
+			queue.append(next_pos + Vector2.DOWN)
 

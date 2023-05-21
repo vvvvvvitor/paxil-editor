@@ -11,7 +11,7 @@ enum DRAWING_STATES {
 var drawing_state:DRAWING_STATES = DRAWING_STATES.IDLE
 
 func _init():
-	tool_name = "tool"
+	tool_name = "Eraser"
 	tool_icon = load("res://res/textures/icons/eraser-16x.png")
 
 

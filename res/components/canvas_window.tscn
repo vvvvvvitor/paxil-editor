@@ -13,7 +13,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bi2gs"]
 shader = ExtResource("3_vqqwg")
-shader_parameter/cells = 8.0
+shader_parameter/cells = 4.0
 shader_parameter/color1 = Color(1, 0.694118, 0.419608, 1)
 shader_parameter/color2 = Color(0.721569, 0.254902, 0, 1)
 

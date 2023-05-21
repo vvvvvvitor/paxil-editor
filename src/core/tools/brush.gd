@@ -8,15 +8,12 @@ enum DRAWING_STATES {
 	HOLDING_RIGHT
 }
 
-
-var primary_color:Color = Color.WHITE
-var secondary_color:Color = Color.WHITE
-
 var drawing_state:DRAWING_STATES = DRAWING_STATES.IDLE
 
 
 func _init():
-	tool_name = "tool"
+	super()
+	tool_name = "Brush"
 	tool_icon = load("res://res/textures/icons/pen-16x.png")
 
 
@@ -25,6 +22,8 @@ func _actionbar_init(action_bar:PanelContainer):
 
 
 var last_point:Vector2 = Vector2.ONE
+var primary_color:Color
+var secondary_color:Color
 func _canvas_input(canvas:Canvas, event:InputEvent):
 	if event is InputEventMouseMotion:
 		match drawing_state:
@@ -43,6 +42,9 @@ func _canvas_input(canvas:Canvas, event:InputEvent):
 
 	if event is InputEventMouseButton:
 		if event.button_index in [MOUSE_BUTTON_LEFT, MOUSE_BUTTON_RIGHT]:
+			primary_color = current_workspace.primary_color
+			secondary_color = current_workspace.secondary_color
+			
 			last_point = event.position / Core.CANVAS_AMPLIFICATION
 			drawing_state = event.button_index * int(event.pressed)
 			if event.pressed:
