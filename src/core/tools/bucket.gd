@@ -18,5 +18,5 @@ func _canvas_input(canvas:Canvas, event:InputEvent):
 	if event is InputEventMouseButton:
 		if event.button_index in [MOUSE_BUTTON_LEFT, MOUSE_BUTTON_RIGHT]:
 			if event.pressed:
-				var color = current_workspace.primary_color if event.button_index == 1 else current_workspace.secondary_color
+				var color = current_workspace.get_primary_color() if event.button_index == 1 else current_workspace.get_secondary_color()
 				canvas.draw_flood_fill_on_canvas(round(event.position / Core.CANVAS_AMPLIFICATION), color)

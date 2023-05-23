@@ -9,6 +9,11 @@ var workspace = WORKSPACE_SCENE.instantiate()
 
 @export var brush_color:Color = Color.BLACK
 
+var color_pallete:PackedColorArray = []
+
+var primary_color:int = 0
+var secondary_color:int = 0
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -19,3 +24,18 @@ func _ready():
 	add_child(workspace_camera)
 	add_child(workspace)
 	emit_signal("workspace_created")
+
+
+func get_pallete_color(index):
+	if !color_pallete.is_empty():
+		return color_pallete[index] * ceil(color_pallete[index].a)
+	return Color.BLACK
+	
+	
+func get_primary_color():
+	return get_pallete_color(primary_color)
+
+
+func get_secondary_color():
+	return get_pallete_color(secondary_color)
+

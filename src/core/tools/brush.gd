@@ -33,7 +33,7 @@ func _canvas_input(canvas:Canvas, event:InputEvent):
 					canvas.draw_line_on_canvas(
 						last_point, 
 						current_pos, 
-						primary_color if drawing_state == 1 else secondary_color, 
+						current_workspace.get_primary_color() if drawing_state == 1 else current_workspace.get_secondary_color(),
 						Canvas.COLOR_MODE.NORMAL if primary_color.a == 1 else Canvas.COLOR_MODE.ADDITIVE,
 					)
 					last_point = event.position / Core.CANVAS_AMPLIFICATION
@@ -42,10 +42,11 @@ func _canvas_input(canvas:Canvas, event:InputEvent):
 
 	if event is InputEventMouseButton:
 		if event.button_index in [MOUSE_BUTTON_LEFT, MOUSE_BUTTON_RIGHT]:
-			primary_color = current_workspace.primary_color
-			secondary_color = current_workspace.secondary_color
-			
 			last_point = event.position / Core.CANVAS_AMPLIFICATION
 			drawing_state = event.button_index * int(event.pressed)
 			if event.pressed:
-				canvas.draw_point_on_canvas(last_point, primary_color if event.button_index == 1 else secondary_color, Canvas.COLOR_MODE.NORMAL if primary_color.a == 1 else Canvas.COLOR_MODE.ADDITIVE)
+				canvas.draw_point_on_canvas(
+					last_point, 
+					current_workspace.get_primary_color() if event.button_index == 1 else current_workspace.get_secondary_color(), 
+					Canvas.COLOR_MODE.NORMAL if primary_color.a == 1 else Canvas.COLOR_MODE.ADDITIVE
+					)

@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=12 format=3 uid="uid://2mf65o6rg3hk"]
 
-[ext_resource type="FontFile" uid="uid://ceu70eo07piqq" path="res://res/fonts/futura medium bt.ttf" id="1_gua10"]
+[ext_resource type="FontFile" uid="uid://ceu70eo07piqq" path="res://res/fonts/Futura_Medium.ttf" id="1_gua10"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7me25"]
 content_margin_left = 4.0
@@ -77,10 +77,10 @@ border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
 border_color = Color(0.207843, 0.207843, 0.207843, 1)
-corner_radius_top_left = 100
-corner_radius_top_right = 100
-corner_radius_bottom_right = 100
-corner_radius_bottom_left = 100
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 shadow_color = Color(0.65098, 0.65098, 0.65098, 0.6)
 shadow_size = 2
 anti_aliasing = false

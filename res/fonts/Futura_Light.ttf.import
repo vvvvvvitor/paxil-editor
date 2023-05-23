@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://ceu70eo07piqq"
-path="res://.godot/imported/futura medium bt.ttf-42aa66b61f5983f4675972fa0d6e0e7d.fontdata"
+uid="uid://d3x43ir8rwbdl"
+path="res://.godot/imported/Futura_Light.ttf-da4b616999ffde684b48b8ea19e43797.fontdata"
 
 [deps]
 
-source_file="res://res/fonts/futura medium bt.ttf"
-dest_files=["res://.godot/imported/futura medium bt.ttf-42aa66b61f5983f4675972fa0d6e0e7d.fontdata"]
+source_file="res://res/fonts/Futura_Light.ttf"
+dest_files=["res://.godot/imported/Futura_Light.ttf-da4b616999ffde684b48b8ea19e43797.fontdata"]
 
 [params]
 

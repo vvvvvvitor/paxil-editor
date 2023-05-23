@@ -1,16 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://dbcelvqb4h7pj"]
 
-[ext_resource type="Script" path="res://src/ui/actions/brush/color_picker.gd" id="1_8whp8"]
+[ext_resource type="PackedScene" uid="uid://cwpexjmid4yec" path="res://res/components/colors_pallete.tscn" id="1_krxsh"]
 
 [node name="BrushAction" type="HBoxContainer"]
+metadata/_edit_horizontal_guides_ = [-19.0]
 
-[node name="ColorPickerPreviewButton2" type="ColorPickerButton" parent="."]
+[node name="ColorsPallete" parent="." instance=ExtResource("1_krxsh")]
 layout_mode = 2
-focus_mode = 0
-script = ExtResource("1_8whp8")
-secondary = true
-
-[node name="ColorPickerPreviewButton" type="ColorPickerButton" parent="."]
-layout_mode = 2
-focus_mode = 0
-script = ExtResource("1_8whp8")

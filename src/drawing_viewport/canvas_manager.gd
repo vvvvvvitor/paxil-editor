@@ -3,7 +3,7 @@ class_name CanvasManager
 
 const CANVAS_WINDOW = preload("res://res/components/canvas_window.tscn")
 
-const FONT:Font = preload("res://res/fonts/futura medium bt.ttf")
+const FONT:Font = preload("res://res/fonts/Futura_Medium.ttf")
 var click_count = 0
 var canvas_rect:Rect2 = Rect2(0, 0, 0, 0)
 var creating = false

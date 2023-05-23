@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://cwpexjmid4yec"]
+
+[ext_resource type="Script" path="res://src/ui/actions/brush/pallete.gd" id="1_xq6eg"]
+[ext_resource type="Texture2D" uid="uid://bodv1usnnh0io" path="res://res/textures/icons/plus-16x.png" id="2_8ctix"]
+[ext_resource type="Script" path="res://src/ui/actions/brush/new_color.gd" id="3_ty81m"]
+[ext_resource type="Texture2D" uid="uid://bb174n1c7qvcj" path="res://res/textures/icons/minus-16x.png" id="4_n2bu1"]
+[ext_resource type="Script" path="res://src/ui/actions/brush/remove_color.gd" id="5_8agao"]
+
+[node name="ColorsPallete" type="HBoxContainer"]
+
+[node name="ColorPallete" type="HBoxContainer" parent="."]
+layout_direction = 3
+layout_mode = 2
+script = ExtResource("1_xq6eg")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 2
+
+[node name="ControlButtons" type="HBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = -1
+
+[node name="NewColor" type="Button" parent="PanelContainer/ControlButtons" node_paths=PackedStringArray("color_pallete")]
+layout_mode = 2
+icon = ExtResource("2_8ctix")
+flat = true
+script = ExtResource("3_ty81m")
+color_pallete = NodePath("../../../ColorPallete")
+
+[node name="VSeparator" type="VSeparator" parent="PanelContainer/ControlButtons"]
+layout_mode = 2
+
+[node name="RemoveColor" type="Button" parent="PanelContainer/ControlButtons" node_paths=PackedStringArray("color_pallete")]
+layout_mode = 2
+icon = ExtResource("4_n2bu1")
+flat = true
+script = ExtResource("5_8agao")
+color_pallete = NodePath("../../../ColorPallete")
