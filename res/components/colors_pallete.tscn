@@ -7,11 +7,8 @@
 [ext_resource type="Script" path="res://src/ui/actions/brush/remove_color.gd" id="5_8agao"]
 
 [node name="ColorsPallete" type="HBoxContainer"]
-
-[node name="ColorPallete" type="HBoxContainer" parent="."]
-layout_direction = 3
-layout_mode = 2
-script = ExtResource("1_xq6eg")
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 2
@@ -36,3 +33,10 @@ icon = ExtResource("4_n2bu1")
 flat = true
 script = ExtResource("5_8agao")
 color_pallete = NodePath("../../../ColorPallete")
+
+[node name="ColorPallete" type="HBoxContainer" parent="."]
+layout_direction = 3
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_xq6eg")

@@ -29,7 +29,7 @@ func _canvas_input(canvas:Canvas, event:InputEvent):
 		match drawing_state:
 			DRAWING_STATES.HOLDING_LEFT, DRAWING_STATES.HOLDING_RIGHT:
 				var current_pos = event.position / Core.CANVAS_AMPLIFICATION
-				if current_pos.distance_to(last_point.snapped(Vector2.ONE)) > 0.5:
+				if current_pos.distance_to(last_point.snapped(Vector2.ONE)) > 0.25:
 					canvas.draw_line_on_canvas(
 						last_point, 
 						current_pos, 

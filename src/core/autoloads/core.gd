@@ -12,6 +12,10 @@ var current_workspace:WorkspaceViewport:
 		emit_signal("workspace_changed")
 
 
+func _ready():
+	DisplayServer.window_set_min_size(Vector2(288, 288))
+
+
 func create_window_popup(scene:PackedScene, custom_size:Vector2 = Vector2(384, 384), on_top:bool = true) -> BaseWindow:
 	var new_window = BaseWindow.create_with_size(custom_size.x, custom_size.y, 288, 288)
 	var scene_instance = scene.instantiate()

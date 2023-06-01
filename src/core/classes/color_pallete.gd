@@ -47,6 +47,7 @@ func make_pallete(): # OPTIMIZE THIS LATER !!!
 				new_button.modulate = new_button.color
 				new_button.color_pressed.connect(__on_color_pressed)
 				new_button.color_accepted.connect(__on_accept)
+				new_button.focus_mode = Control.FOCUS_NONE
 				new_button.set_meta("color_id", index)
 				add_child(new_button)
 
@@ -63,9 +64,10 @@ func add_color(color):
 	
 
 func remove_color(index):
-	__colors.remove_at(index)
-	get_children()[index].queue_free()
-	make_pallete()
+	if __colors.size() > 0:
+		__colors.remove_at(index)
+		get_children()[index].queue_free()
+		make_pallete()
 
 
 func get_color(index) -> Color:

@@ -27,6 +27,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 mouse_filter = 2
 script = ExtResource("1_01tpu")
 
@@ -132,17 +134,15 @@ flat = true
 script = ExtResource("6_aysj5")
 rotation_amount = -0.785
 
-[node name="FlowContainer" type="FlowContainer" parent="Control/MarginContainer"]
+[node name="FlowContainer" type="HBoxContainer" parent="Control/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 alignment = 1
-vertical = true
 
 [node name="ActionBar" type="PanelContainer" parent="Control/MarginContainer/FlowContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
+size_flags_horizontal = 3
 script = ExtResource("4_w2eef")
 
 [node name="PanelContainer" type="PanelContainer" parent="Control/MarginContainer/FlowContainer"]
